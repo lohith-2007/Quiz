@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trivia Challenge Game</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="game-container">
+        <!-- Start Screen -->
+        <div id="startScreen" class="screen active">
+            <h1>🎯 Trivia Challenge</h1>
+            <p>Test your knowledge with questions from various categories!</p>
+            
+            <div class="settings">
+                <label for="category">Category:</label>
+                <select id="category">
+                    <option value="">Any Category</option>
+                    <option value="9">General Knowledge</option>
+                    <option value="21">Sports</option>
+                    <option value="22">Geography</option>
+                    <option value="23">History</option>
+                    <option value="27">Animals</option>
+                    <option value="28">Vehicles</option>
+                </select>
+
+                <label for="difficulty">Difficulty:</label>
+                <select id="difficulty">
+                    <option value="">Any Difficulty</option>
+                    <option value="easy">Easy</option>
+                    <option value="medium">Medium</option>
+                    <option value="hard">Hard</option>
+                </select>
+
+                <label for="numQuestions">Number of Questions:</label>
+                <select id="numQuestions">
+                    <option value="5">5</option>
+                    <option value="10" selected>10</option>
+                    <option value="15">15</option>
+                    <option value="20">20</option>
+                </select>
+            </div>
+
+            <button id="startBtn" class="btn btn-primary">Start Game</button>
+            
+            <div class="high-score">
+                <h3>🏆 High Score: <span id="highScore">0</span></h3>
+            </div>
+        </div>
+
+        <!-- Game Screen -->
+        <div id="gameScreen" class="screen">
+            <div class="game-header">
+                <div class="score">Score: <span id="currentScore">0</span></div>
+                <div class="question-counter">
+                    Question <span id="currentQuestion">1</span> of <span id="totalQuestions">10</span>
+                </div>
+                <div class="timer">Time: <span id="timer">30</span>s</div>
+            </div>
+
+            <div class="progress-bar">
+                <div id="progress" class="progress"></div>
+            </div>
+
+            <div class="question-container">
+                <h2 id="question">Loading question...</h2>
+                <div id="answers" class="answers-grid">
+                    <!-- Answers will be inserted here -->
+                </div>
+            </div>
+
+            <button id="nextBtn" class="btn btn-secondary" style="display: none;">Next Question</button>
+        </div>
+
+        <!-- Results Screen -->
+        <div id="resultScreen" class="screen">
+            <h1>Game Over!</h1>
+            <div class="results-stats">
+                <h2>Your Score: <span id="finalScore">0</span></h2>
+                <p>Correct Answers: <span id="correctAnswers">0</span> / <span id="totalAnswered">0</span></p>
+                <p>Accuracy: <span id="accuracy">0</span>%</p>
+                <div id="newHighScore" class="new-high-score" style="display: none;">
+                    🎉 New High Score! 🎉
+                </div>
+            </div>
+            
+            <div class="results-breakdown">
+                <h3>Question Breakdown:</h3>
+                <div id="questionBreakdown"></div>
+            </div>
+
+            <div class="button-group">
+                <button id="playAgainBtn" class="btn btn-primary">Play Again</button>
+                <button id="changeCategoryBtn" class="btn btn-secondary">Change Settings</button>
+            </div>
+        </div>
+
+        <!-- Loading Screen -->
+        <div id="loadingScreen" class="screen">
+            <div class="loader"></div>
+            <p>Loading questions...</p>
+        </div>
+
+        <!-- Error Screen -->
+        <div id="errorScreen" class="screen">
+            <h2>😕 Oops! Something went wrong</h2>
+            <p id="errorMessage">Failed to load questions. Please try again.</p>
+            <button id="retryBtn" class="btn btn-primary">Retry</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+  </html>
